@@ -15,6 +15,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
+        // dd($posts);
         return view('blog.index', compact('posts'));
 
     }
@@ -37,7 +38,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-    dd('Redirected to the Store Method');
+        // dd('Redirected to the Store Method');
+        // dd($request->all());
+        // exit;
+        $post = new Post();
+        $post->title = $request->title;
+        $post->excerpt = $request->excerpt;
+        $post->body = $request->body;
+        $post->image_path = 'temporary';
+        $post->is_published = '';
+
     }
 
     /**
