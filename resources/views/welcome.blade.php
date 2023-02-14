@@ -13,7 +13,7 @@
     </div>
     <div class="py-10 sm:py-20">
         <a class="primary-btn inline text-base sm:text-xl bg-green-500 py-4 px-4 shadow-xl rounded-full transition-all hover:bg-green-400"
-            href="blog">
+            href="{{ route('blog.index') }}">
             Blog
         </a>
     </div>

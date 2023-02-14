@@ -19,10 +19,11 @@
         </div>
 
         <div class="m-auto pt-20">
-            <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('blog.store') }}" method="GET" enctype="multipart/form-data">
                 @csrf
                 <label for="is_published" class="text-gray-500 text-2xl">
                     Is Published
+                    {{-- {{ route('blog.store') }} --}}
                 </label>
                 <input type="checkbox" class="bg-transparent block border-b-2 inline text-2xl outline-none"
                     name="is_published">
