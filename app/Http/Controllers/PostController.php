@@ -16,7 +16,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
         return view('blog.index', compact('posts'));
-         
+
     }
 
     /**
@@ -37,7 +37,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    dd('Redirected to the Store Method');
     }
 
     /**
@@ -50,7 +50,8 @@ class PostController extends Controller
     {
         $posts = Post::findorfail($id);
         // dd($posts);
-        return view('blog.show');
+        // return view('blog.show');
+        return view('blog.show', compact('posts'));
     }
 
     /**
