@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>
-        Laravel App
+        Laravel 9 Tutorial
     </title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     @vite('resources/css/app.css')
@@ -22,9 +22,16 @@
 
         <div class="py-10 sm:py-20">
             <a class="primary-btn inline text-base sm:text-xl bg-green-500 py-4 px-4 shadow-xl rounded-full transition-all hover:bg-green-400"
-                href="">
+                href="{{route('blog.create')}}">
                 New Article
             </a>
+            <span class="inline-block w-2"></span>
+
+            <a class="primary-btn inline text-base sm:text-xl bg-green-500 py-4 px-4 shadow-xl rounded-full transition-all hover:bg-green-400"
+                href="/">
+                Home
+            </a>
+
         </div>
     </div>
     @foreach ($posts as $post)
@@ -32,7 +39,7 @@
             <div class="bg-white pt-10 rounded-lg drop-shadow-2xl sm:basis-3/4 basis-full sm:mr-8 pb-10 sm:pb-0">
                 <div class="w-11/12 mx-auto pb-10">
                     <h2 class="text-gray-900 text-2xl font-bold pt-6 pb-0 sm:pt-0 hover:text-gray-700 transition-all">
-                        <a href="{{route('blog.show', $post->id)}}">
+                        <a href="{{ route('blog.show', $post->id) }}">
                             {{ $post->title }}
                             {{-- {{dd($post->title)}} --}}
                         </a>

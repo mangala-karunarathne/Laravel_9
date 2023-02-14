@@ -18,12 +18,12 @@ Route::get('/', function () {
 });
 
 Route::prefix('/blog')->group(function(){
+    Route::get('/create', [App\Http\Controllers\PostController::class, 'create'])->name('blog.create');
     Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('blog.index');
+    Route::get('/', [App\Http\Controllers\PostController::class, 'store'])->name('blog.store');
     // Route::get('/show', [App\Http\Controllers\PostController::class, 'show'])->name('blog.show');
     Route::get('/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('blog.show');
 
-    Route::get('/create', [App\Http\Controllers\PostController::class, 'create'])->name('blog.create');
-//     Route::get('/', [App\Http\Controllers\PostController::class, 'store'])->name('blog.store');
 
 //     Route::get('/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('blog.edit');
 //     Route::patch('/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('blog.update');
