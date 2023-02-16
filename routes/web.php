@@ -36,3 +36,5 @@ Route::prefix('/blog')->group(function(){
 
 Route::get('/addresses', [App\Http\Controllers\AddressController::class, 'index'])->name('addresses.index');
 
+Route::get('/filemanager', [App\Http\Controllers\FileManagerController::class, 'index'])->name('blog.filemanager');
+

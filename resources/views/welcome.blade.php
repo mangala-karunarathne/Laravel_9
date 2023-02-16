@@ -17,6 +17,12 @@
             Blog
         </a>
     </div>
+    <div class="py-10 sm:py-20">
+        <a class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl"
+            href="{{ route('blog.filemanager') }}">
+            File Manager
+        </a>
+    </div>
 </body>
 
 </html>
