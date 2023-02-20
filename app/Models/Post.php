@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $table = 'posts';
+    // protected $table = 'posts';
+    protected $fillable = [
+        'title', 'excerpt', 'body', 'image_path', 'is_published', 'min_to_read'
+    ];
 }

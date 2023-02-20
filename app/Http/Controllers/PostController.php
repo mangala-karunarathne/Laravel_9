@@ -17,7 +17,6 @@ class PostController extends Controller
         $posts = Post::all();
         // dd($posts);
         return view('blog.index', compact('posts'));
-
     }
 
     /**
@@ -42,14 +41,28 @@ class PostController extends Controller
         // dd('Redirected to the Store Method');
         // dd($request->all());
         // exit;
-        $post = new Post();
-        $post->title = $request->title;
-        $post->excerpt = $request->excerpt;
-        $post->body = $request->body;
-        $post->image_path = 'temporary';
-        $post->is_published = $request->is_published === 'on';
-        $post->min_to_read = $request->min_to_read;
-        $post->save();
+
+
+        // Coding with Object Oriented php
+        // $post = new Post();
+        // $post->title = $request->title;
+        // $post->excerpt = $request->excerpt;
+        // $post->body = $request->body;
+        // $post->image_path = 'temporary';
+        // $post->is_published = $request->is_published === 'on';
+        // $post->min_to_read = $request->min_to_read;
+        // $post->save();
+
+
+        // Coding with Eloquent
+        Post::create([
+            'title' => $request->title,
+            'excerpt' => $request->excerpt,
+            'body' => $request->body,
+            'image_path' => 'temporary',
+            'is_published' => $request->is_published === 'on',
+            'min_to_read' => $request->min_to_read
+        ]);
 
         return redirect(route('blog.index'));
     }
