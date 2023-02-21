@@ -38,3 +38,6 @@ Route::get('/addresses', [App\Http\Controllers\AddressController::class, 'index'
 
 Route::get('/filemanager', [App\Http\Controllers\FileManagerController::class, 'index'])->name('blog.filemanager');
 
+Route::get('/image', [ImageController::class,'index'])->name('image.index');
+Route::post('/image', [ImageController::class,'store'])->name('image.store');
+
