@@ -53,6 +53,14 @@ class PostController extends Controller
         // $post->min_to_read = $request->min_to_read;
         // $post->save();
 
+        // Validation
+        $request->validate([
+            'title' => 'required | unique:posts | max: 255',
+            'excerpt' => 'required',
+            'body' => 'required',
+            'image' => ['required', 'mimes:png,jpg,jpeg', 'max:5048'],
+            'min_to_read' => 'min:0 | max:60'
+        ]);
 
         // Coding with Eloquent
         Post::create([
