@@ -28,7 +28,7 @@ Route::prefix('/blog')->group(function(){
 
 
 //     Route::get('/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('blog.edit');
-//     Route::patch('/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('blog.update');
+    Route::patch('/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('blog.update');
 
 //     Route::delete('/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('blog.destroy');
 
