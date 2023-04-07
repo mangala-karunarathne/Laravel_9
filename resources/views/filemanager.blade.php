@@ -19,19 +19,23 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <link href="{{ asset('vendor/file-manager/css/file-manager.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/vendor/file-manager/js') }}" rel="stylesheet">
-    <link href="{{ asset('public/vendor/css/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/file-manager/js/file-manager.js') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/file-manager/js/file-manager.js') }}" rel="stylesheet">
+   
+    <link href="{{ asset('vendor/css/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
         <h2>File Manager</h2>
+        <i class="bi bi-calculator">cal</i>
         <div class="row">
             <div class="col-md-12" id="fm-main-block">
                 <div id="fm"></div>
             </div>
         </div>
     </div>
+
 
     <!-- File manager -->
     <script src="{{ asset('vendor/file-manager/js/file-manager.js') }}"></script>

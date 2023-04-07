@@ -97,7 +97,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+       return view('blog.edit',[
+        'post'=> Post::where('id', $id)->first()
+       ]);
     }
 
     /**
@@ -109,7 +111,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       dd("Test");
     }
 
     /**

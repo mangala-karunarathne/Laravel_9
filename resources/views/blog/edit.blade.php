@@ -13,7 +13,7 @@
     <div class="w-4/5 mx-auto">
         <div class="pt-20 text-center">
             <h1 class="text-3xl text-gray-700">
-                Add new post
+                Edit:{{ $post->title }}
             </h1>
             <hr class="mt-10 border border-gray-300 border-1">
         </div>
@@ -26,7 +26,7 @@
                     </div>
                     <ul class="px-4 py-3 text-red-100 bg-red-700 border border-t-0 border-red-400 rounded-b">
                         @foreach ($errors->all() as $error)
-                            <li >
+                            <li>
                                 {{ $error }}
                             </li>
                         @endforeach
@@ -34,26 +34,32 @@
 
                 @endif
             </div>
-            <form action="{{ route('blog.store') }}" method="GET" enctype="multipart/form-data">
+            <form action="{{ route('blog.update', $post->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PATCH')
                 <label for="is_published" class="text-2xl text-gray-500">
                     Is Published
                     {{-- {{ route('blog.store') }} --}}
                 </label>
-                <input type="checkbox" class="block inline text-2xl bg-transparent border-b-2 outline-none"
+                <input type="checkbox"
+                {{$post->is_published === true? 'checked' : ''}}
+                class="block inline text-2xl bg-transparent border-b-2 outline-none"
                     name="is_published">
 
-                <input type="text" name="title" placeholder="Title..."
+                <input type="text" name="title"
+                value="{{$post->title}}"
                     class="block w-full h-20 text-2xl bg-transparent border-b-2 outline-none">
 
-                <input type="text" name="excerpt" placeholder="Excerpt..."
+                <input type="text" name="excerpt"
+                value="{{$post->excerpt}}"
                     class="block w-full h-20 text-2xl bg-transparent border-b-2 outline-none">
 
-                <input type="number" name="min_to_read" placeholder="Minutes to read..."
+                <input type="number" name="min_to_read"
+                value="{{$post->min_to_read}}"
                     class="block w-full h-20 text-2xl bg-transparent border-b-2 outline-none">
 
-                <textarea name="body" placeholder="Body..."
-                    class="block w-full py-20 text-xl bg-transparent border-b-2 outline-none h-60"></textarea>
+                <textarea name="body"
+                    class="block w-full py-20 text-xl bg-transparent border-b-2 outline-none h-60">{{$post->body}}</textarea>
 
                 <div class="py-10 bg-grey-lighter">
                     <label
