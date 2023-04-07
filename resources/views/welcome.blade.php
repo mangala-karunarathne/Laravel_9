@@ -12,14 +12,14 @@
         No Pain No Gain
     </div>
     <div class="py-10 sm:py-20">
-        <a class="primary-btn inline text-base sm:text-xl bg-green-500 py-4 px-4 shadow-xl rounded-full transition-all hover:bg-green-400"
+        <a class="inline px-4 py-4 text-base transition-all bg-green-500 rounded-full shadow-xl primary-btn sm:text-xl hover:bg-green-400"
             href="{{ route('blog.index') }}">
             Blog
         </a>
     </div>
     <div class="py-10 sm:py-20">
-        <a class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl"
-            href="{{ route('blog.filemanager') }}">
+        <a class="px-8 py-4 text-lg font-extrabold text-gray-100 uppercase bg-blue-500 mt-15 rounded-3xl"
+            href="{{ route('filemanager') }}">
             File Manager
         </a>
     </div>
@@ -28,14 +28,14 @@
             No Pain No Gain
         </div>
         <div class="py-10 sm:py-20">
-            <a class="primary-btn inline text-base sm:text-xl bg-green-500 py-4 px-4 shadow-xl rounded-full transition-all hover:bg-green-400"
+            <a class="inline px-4 py-4 text-base transition-all bg-green-500 rounded-full shadow-xl primary-btn sm:text-xl hover:bg-green-400"
                 href="{{ route('blog.index') }}">
                 Blog
             </a>
         </div>
         <div class="py-10 sm:py-20">
-            <a class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl"
-                href="{{ route('blog.filemanager') }}">
+            <a class="px-8 py-4 text-lg font-extrabold text-gray-100 uppercase bg-blue-500 mt-15 rounded-3xl"
+                href="{{ route('filemanager') }}">
                 File Manager
             </a>
         </div>
