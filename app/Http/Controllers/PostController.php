@@ -111,7 +111,17 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-       dd("Test");
+
+       Post::where('id', $id)->update([
+        'title' => $request->title,
+        'excerpt' => $request->excerpt,
+        'body' => $request->body,
+        'image_path' => $request->image,
+        'is_published' => $request->is_published === 'on',
+        'min_to_read' => $request->min_to_read
+       ]);
+
+       return redirect(route('blog.index'));
     }
 
     /**

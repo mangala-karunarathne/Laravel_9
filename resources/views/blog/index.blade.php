@@ -44,21 +44,21 @@
                             {{-- {{dd($post->title)}} --}}
                         </a>
                     </h2>
-                    {{-- {{dd($posts)}} --}}
+                    {{-- {{dd($post)}} --}}
                     <p class="w-full py-8 text-lg text-gray-900 break-words">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa maiores nisi quasi tenetur
-                        voluptatem! At blanditiis dolor doloremque eaque, esse molestiae neque numquam quod repellat
-                        rerum
-                        sequi sit suscipit veritatis!
+                        {{-- {{dd($post->excerpt)}} --}}
+                        {{$post->excerpt}}
                     </p>
 
                     <span class="text-sm text-gray-500 sm:text-base">
                         Made by:
                         <a href=""
                             class="pb-3 italic text-green-500 transition-all border-green-400 hover:text-green-400 hover:border-b-2">
-                            Dary
+                           Mangala
                         </a>
-                        on 13-07-2022
+                        {{-- {{dd($post->created_at)}} --}}
+                        {{ date('Y-m-d', strtotime($post->created_at)) }}
+
                     </span>
                     <a href="{{ route('blog.edit', $post->id)}}" class="block italic text-green-500 border-green-400 border-b-1 ">
                         Edit
