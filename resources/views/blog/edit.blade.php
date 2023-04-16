@@ -41,25 +41,19 @@
                     Is Published
                     {{-- {{ route('blog.store') }} --}}
                 </label>
-                <input type="checkbox"
-                {{$post->is_published === true? 'checked' : ''}}
-                class="block inline text-2xl bg-transparent border-b-2 outline-none"
-                    name="is_published">
+                <input type="checkbox" {{ $post->is_published === true ? 'checked' : '' }}
+                    class="block inline text-2xl bg-transparent border-b-2 outline-none" name="is_published">
 
-                <input type="text" name="title"
-                value="{{$post->title}}"
+                <input type="text" name="title" value="{{ $post->title }}"
                     class="block w-full h-20 text-2xl bg-transparent border-b-2 outline-none">
 
-                <input type="text" name="excerpt"
-                value="{{$post->excerpt}}"
+                <input type="text" name="excerpt" value="{{ $post->excerpt }}"
                     class="block w-full h-20 text-2xl bg-transparent border-b-2 outline-none">
 
-                <input type="number" name="min_to_read"
-                value="{{$post->min_to_read}}"
+                <input type="number" name="min_to_read" value="{{ $post->min_to_read }}"
                     class="block w-full h-20 text-2xl bg-transparent border-b-2 outline-none">
 
-                <textarea name="body"
-                    class="block w-full py-20 text-xl bg-transparent border-b-2 outline-none h-60">{{$post->body}}</textarea>
+                <textarea name="body" class="block w-full py-20 text-xl bg-transparent border-b-2 outline-none h-60">{{ $post->body }}</textarea>
 
                 <div class="py-10 bg-grey-lighter">
                     <label
@@ -67,7 +61,7 @@
                         <span class="mt-2 text-base leading-normal">
                             Select a file
                         </span>
-                        <input type="file" name="image" class="hidden">
+                        <input type="file" name="image_path" class="hidden">
                     </label>
                 </div>
 
