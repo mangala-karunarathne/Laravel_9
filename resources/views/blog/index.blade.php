@@ -34,6 +34,17 @@
 
         </div>
     </div>
+
+    @if (session()->has('message'))
+        <div class="mx-auto w-4/5 pb-10">
+            <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                Warning
+            </div>
+            <div class="border border-t-1 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                {{ session()->get('message') }}
+            </div>
+        </div>
+    @endif
     @foreach ($posts as $post)
         <div class="w-4/5 pb-10 mx-auto">
             <div class="pt-10 pb-10 bg-white rounded-lg drop-shadow-2xl sm:basis-3/4 basis-full sm:mr-8 sm:pb-0">
@@ -47,22 +58,30 @@
                     {{-- {{dd($post)}} --}}
                     <p class="w-full py-8 text-lg text-gray-900 break-words">
                         {{-- {{dd($post->excerpt)}} --}}
-                        {{$post->excerpt}}
+                        {{ $post->excerpt }}
                     </p>
 
                     <span class="text-sm text-gray-500 sm:text-base">
                         Made by:
                         <a href=""
                             class="pb-3 italic text-green-500 transition-all border-green-400 hover:text-green-400 hover:border-b-2">
-                           Mangala
+                            Mangala
                         </a>
                         {{-- {{dd($post->created_at)}} --}}
                         {{ date('Y-m-d', strtotime($post->created_at)) }}
 
                     </span>
-                    <a href="{{ route('blog.edit', $post->id)}}" class="block italic text-green-500 border-green-400 border-b-1 ">
+                    <a href="{{ route('blog.edit', $post->id) }}"
+                        class="block italic text-green-500 border-green-400 border-b-1 ">
                         Edit
                     </a>
+                    <form action="{{ route('blog.destroy', $post->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="pt-3 text-red-500 pr-3" type="submit">
+                            Delete
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
