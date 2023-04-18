@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostFormRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostFormRequest $request)
     {
         // dd('Redirected to the Store Method');
         // dd($request->all());
@@ -54,13 +55,7 @@ class PostController extends Controller
         // $post->save();
 
         // Validation
-        // $request->validate([
-        //     'title' => 'required | max: 255',
-        //     'excerpt' => 'required',
-        //     'body' => 'required',
-        //     'image' => [ 'mimes:png,jpg,jpeg'],
-        //     'min_to_read' => 'min:0 | max:60'
-        // ]);
+        $request->validated();
 
         // Coding with Eloquent
         Post::create([
