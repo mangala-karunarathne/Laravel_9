@@ -86,6 +86,9 @@
             </div>
         </div>
     @endforeach
+    <div class="mx-auto pb-10 w-4/5 flex justify-center">
+        {{ $posts->links('vendor.pagination.tailwind') }}
+    </div>
 
 </body>
 
