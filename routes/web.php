@@ -1,7 +1,5 @@
 <?php
 
-use Carbon\Factory as CarbonFactory;
-use Faker\Factory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,21 +17,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('/blog')->group(function(){
-    Route::get('/create', [App\Http\Controllers\PostController::class, 'create'])->name('blog.create');
-    Route::get('/store', [App\Http\Controllers\PostController::class, 'store'])->name('blog.store');
-    Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('blog.index');
-    Route::get('/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('blog.show');
-    Route::get('/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('blog.edit');
-    Route::patch('/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('blog.update');
-    Route::delete('/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('blog.destroy');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
+require __DIR__.'/auth.php';
+
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::get('/addresses', [App\Http\Controllers\AddressController::class, 'index'])->name('addresses.index');
+// Route::prefix('/blog')->group(function(){
+//     Route::get('/create', [App\Http\Controllers\PostController::class, 'create'])->name('blog.create');
+//     Route::get('/store', [App\Http\Controllers\PostController::class, 'store'])->name('blog.store');
+//     Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('blog.index');
+//     Route::get('/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('blog.show');
+//     Route::get('/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('blog.edit');
+//     Route::patch('/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('blog.update');
+//     Route::delete('/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('blog.destroy');
 
-Route::get('/filemanager', [App\Http\Controllers\FileManagerController::class, 'index'])->name('filemanager');
+// });
 
-Route::get('/image', [ImageController::class,'index'])->name('image.index');
-Route::post('/image', [ImageController::class,'store'])->name('image.store');
+// Route::get('/addresses', [App\Http\Controllers\AddressController::class, 'index'])->name('addresses.index');
 
+// Route::get('/filemanager', [App\Http\Controllers\FileManagerController::class, 'index'])->name('filemanager');
+
+// Route::get('/image', [ImageController::class,'index'])->name('image.index');
+// Route::post('/image', [ImageController::class,'store'])->name('image.store');
+
+Route::resource('blog', PostController::class);
